@@ -1,0 +1,13 @@
+
+
+spring:
+  application:
+    name: COURSE-CRUD-SERVICE
+  config:
+    import: configserver:http://${confighost}:${configport}
+
+    
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761

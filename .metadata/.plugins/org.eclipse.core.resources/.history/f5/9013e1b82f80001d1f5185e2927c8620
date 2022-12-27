@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.courseapp.service;
+
+import com.courseapp.model.Course;
+
+/**
+ * @author JagannathSutar
+ *
+ */
+public interface ICourseService {
+	void addCourse(Course course);
+	
+	void updateCourse(Course course);
+	
+	void deleteCourse(String courseId);
+	
+	Course getById(String courseId);
+
+}

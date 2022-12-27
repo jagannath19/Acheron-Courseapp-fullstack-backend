@@ -1,0 +1,14 @@
+cpackage com.acheron.courseapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@Enaable
+public class CourseappCloudGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CourseappCloudGatewayApplication.class, args);
+	}
+
+}

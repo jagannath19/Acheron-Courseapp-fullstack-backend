@@ -1,0 +1,19 @@
+server:
+  port: 8081
+ #This is a service. It has to register itself to eureka server
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+  
+ #database/hibernate specific perporties
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/coursems
+    
+
+    
+  application:
+    name: COURSE-SERVICE

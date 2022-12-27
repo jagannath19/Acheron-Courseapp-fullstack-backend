@@ -1,0 +1,22 @@
+package com.acheron.courseapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class CourseappCloudGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CourseappCloudGatewayApplication.class, args);
+	}
+	
+	@Bean
+	@LoadBalanced
+	public RouteLocator customRoutes(RouteLocatorBuilder builder) {
+		return builder.routes()
+				.route("courseService", ps->ps.path("/course-serv/**").uri("lb://COURSE-SERVICE"))
+				.build();
+	}
+
+}

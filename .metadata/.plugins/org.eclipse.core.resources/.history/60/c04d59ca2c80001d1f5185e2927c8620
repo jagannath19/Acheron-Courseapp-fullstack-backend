@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.courseapp.model;
+
+/**
+ * @author JagannathSutar
+ *
+ */
+public class Course {
+
+}

@@ -1,0 +1,5 @@
+1671519464600	Delete resource 'courseapp-eureka-registry'
+1671519470079	Delete resource 'courseapp-cloud-gateway'
+1671519474375	Delete resource 'courseapp-cloud-config'
+1671732185153	Rename resource 'courseapp-cloud-gateway'
+1671871622753	Rename resource 'courseapp-course-service'

@@ -1,0 +1,13 @@
+
+spring:
+  application:
+    name: COURSE-GET-SERVICE
+
+server:
+  port: 8082
+  
+
+eureeureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761

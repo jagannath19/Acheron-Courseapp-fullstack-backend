@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: COURSE-GET-SERVICE
+
+server:
+  port: 8082
+  
+
+  
+  

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.courseapp.service;
+
+/**
+ * @author JagannathSutar
+ *
+ */
+public interface ICourseService {
+
+}

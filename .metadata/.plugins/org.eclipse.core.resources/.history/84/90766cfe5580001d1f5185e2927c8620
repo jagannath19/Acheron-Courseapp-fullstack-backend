@@ -1,0 +1,30 @@
+package com.acheron.courseapp.model;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+
+/**
+ * @author JagannathSutar
+ *	This need when the request has failed, and the action is not completed
+ */
+public class ApiErrors {
+	
+	LocalDate datestamp;
+	String message;
+	HttpStatus status;
+	int statusCode;
+	String error;
+	/**
+	 * 
+	 */
+	public ApiErrors() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+
+}

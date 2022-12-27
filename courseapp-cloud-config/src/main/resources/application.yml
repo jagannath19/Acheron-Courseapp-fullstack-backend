@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: COURSEAPP-CONFIG
+    
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jagannath19/courseapp-repo.git
+          
+              
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761

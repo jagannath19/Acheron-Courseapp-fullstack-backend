@@ -1,0 +1,32 @@
+package com.acheron.courseapp;
+
+import java.util.Arrays;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.acheron.courseapp.model.Course;
+import com.algolia.search.DefaultSearchClient;
+import com.algolia.search.SearchClient;
+import com.algolia.search.SearchIndex;
+
+@SpringBootApplication
+public class CourseappCourseServiceApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(CourseappCourseServiceApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		SearchClient client=DefaultSearchClient.create("BWN0VYKP4E","0c805a3cf34b135916f08df31e635715");
+		SearchIndex<Course> index = client.initIndex("course_index", Course.class);
+		
+		Course record2 = new Course("A01", "java course", "developer", "java developer", Arrays.asList("java","spring"), "radhe", 30, 90, "pending", LocalDate.of(2022, 12, 20), LocalDate.of(2023, 01, 20), Arrays.asList("English","Hindi"), Arrays.asList("English","Hindi"), Arrays.asList("quiz test","coding practice"), 10000, 4.5, "pending", "online");
+	      
+	      index.saveObject(record2).waitTask();
+	}
+
+}

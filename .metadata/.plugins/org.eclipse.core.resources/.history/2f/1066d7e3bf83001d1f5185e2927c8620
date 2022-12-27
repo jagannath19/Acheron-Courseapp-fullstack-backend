@@ -1,0 +1,29 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: COURSEAPP-CONFIG
+    
+  cloud:
+    config:
+      server:
+        git:
+          repos:
+            courseapp-repository-CRUD:
+              pattern: 'course-service/*'
+              uri: https://github.com/jagannath19/courseapp-repository-CRUD.git
+            courseapp-repository-GET:
+              pattern: 'course-serv/*'
+                uri: https://github.com/jagannath19/courseapp-repository-GET.git
+          
+              
+eureka:
+  client:
+hch-vmez-qmm
+          
+              
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761

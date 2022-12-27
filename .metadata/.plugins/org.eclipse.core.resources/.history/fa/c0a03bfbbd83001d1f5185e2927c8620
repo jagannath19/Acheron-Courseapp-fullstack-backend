@@ -1,0 +1,22 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: COURSEAPP-CONFIG
+    
+  cloud:
+    config:
+      server:
+        git:
+          repos:
+            crud:
+              pattern:
+                - 'crud'
+              
+          
+              
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761

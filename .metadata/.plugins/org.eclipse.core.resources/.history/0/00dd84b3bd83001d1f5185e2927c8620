@@ -1,0 +1,7 @@
+
+spring:
+  application:
+    name: COURSE-GET-SERVICE
+  config:
+    import: configserver:http://${confighost}:${configport}
+  

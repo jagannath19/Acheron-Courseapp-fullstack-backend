@@ -1,0 +1,6 @@
+ser
+spring:
+  application:
+    name: COURSE-SERVICE
+  config:
+    import: configserver:http://${confighost}:${configport}

@@ -1,0 +1,3 @@
+api.application.id = ${api.application.id}
+api.admin.key = ${}
+
