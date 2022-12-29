@@ -6,7 +6,9 @@ package com.acheron.courseapp.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +39,7 @@ public class CourseController {
 		this.courseService = courseService;
 	}
 
-	
+	@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_EDITOR','ROLE_MEMBER')")
 	@GetMapping("/courses/pages/{pages}/records/{records}")
 	ResponseEntity<BrowseIndexResponse<Course>> getCourseWithPagination(@PathVariable("pages") int pages,
 			@PathVariable("records") int records){
@@ -55,6 +57,14 @@ public class CourseController {
 		BrowseIndexResponse<Course> courses= courseService.getAllSorting(attribute);
 		System.out.println("running");
 		return ResponseEntity.ok().body(courses);
+	}
+	
+	@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_EDITOR','ROLE_MEMBER')")
+	@GetMapping("/course/{courseId}")
+	ResponseEntity<Course> getCourseById(@PathVariable("courseId") String courseId) {
+		HttpHeaders header = new HttpHeaders();
+		header.add("desc", "get course by Id");
+		return ResponseEntity.ok().headers(header).body(courseService.getById(courseId));
 	}
 
 }

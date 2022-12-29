@@ -23,7 +23,6 @@ public interface ICourseRepository {
 	
 	void deleteCourse(String courseId);
 	
-	Course getById(String courseId);
 	List<Course> getAll();
 	public BrowseIndexResponse<Course> getAllWithPagination(int pages,int hitsPerPage);
 	BrowseIndexResponse<Course> getAllSorting(String attribute);

@@ -43,7 +43,10 @@ public class CourseServiceImpl implements ICourseService {
 		return courseRepository.getAllSorting(attribute);
 	}
 
-	
+	@Override
+	public Course getById(String courseId) {
+		return courseRepository.getById(courseId);
+	}
 	
 	
 

@@ -45,10 +45,7 @@ public class CourseServiceImpl implements ICourseService {
 		courseRepository.deleteCourse(courseId);
 	}
 
-	@Override
-	public Course getById(String courseId) {
-		return courseRepository.getById(courseId);
-	}
+	
 
 	@Override
 	public List<Course> getAll() {

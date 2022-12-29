@@ -17,6 +17,6 @@ public interface ICourseService {
 	
 	public BrowseIndexResponse<Course> getAllWithPagination(int pages,int hitsPerPage);
 	BrowseIndexResponse<Course> getAllSorting(String attribute);
-	
+	Course getById(String courseId);
 	
 }

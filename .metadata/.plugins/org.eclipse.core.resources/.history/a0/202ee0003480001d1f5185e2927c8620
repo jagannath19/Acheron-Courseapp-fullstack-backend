@@ -1,4 +1,0 @@
-ser.port
-spring:
-  application:
-    name: COURSE-SERVICE

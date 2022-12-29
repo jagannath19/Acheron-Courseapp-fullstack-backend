@@ -78,6 +78,10 @@ public class CourseRepositoryImpl implements ICourseRepository {
 		
 		
 	}
+	@Override
+	public Course getById(String courseId) {
+		return index.getObject(courseId);
+	}
 	
 
 	

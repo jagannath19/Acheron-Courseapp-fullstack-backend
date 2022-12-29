@@ -20,7 +20,7 @@ public interface ICourseService {
 	
 	void deleteCourse(String courseId);
 	
-	Course getById(String courseId);
+	
 	List<Course> getAll();
 
 

@@ -60,10 +60,7 @@ public class CourseRepositoryImpl implements ICourseRepository {
 	public void deleteCourse(String courseId) {
 		index.deleteObject(courseId);
 	}
-	@Override
-	public Course getById(String courseId) {
-		return index.getObject(courseId);
-	}
+	
 	@Override
 	public List<Course> getAll() {
 		List<Course> courses=new ArrayList<>();

@@ -5,6 +5,13 @@ spring:
     name: COURSE-CRUD-SERVICE
   config:
     import: configserver:http://${confighost}:${configport}
+    
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri : http://localhost:8080/realms/angu-project
+  
 
     
 eureka:

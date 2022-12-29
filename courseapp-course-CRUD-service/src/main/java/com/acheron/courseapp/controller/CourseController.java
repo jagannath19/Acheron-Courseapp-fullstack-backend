@@ -3,8 +3,6 @@
  */
 package com.acheron.courseapp.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.acheron.courseapp.model.Course;
 import com.acheron.courseapp.service.ICourseService;
-import com.algolia.search.models.indexing.BrowseIndexResponse;
 
 /**
  * @author JagannathSutar
@@ -83,9 +80,10 @@ public class CourseController {
 	 * Allow role for only ADMIN
 	 */
 	@DeleteMapping("/deleteCourse/{courseId}")
-	void deleteCourse(@PathVariable("courseId") String couseId) {
+	ResponseEntity<Void> deleteCourse(@PathVariable("courseId") String couseId) {
 		logger.info("Course deleted");
 		courseService.deleteCourse(couseId);
+		return ResponseEntity.ok().build();
 
 	}
 
@@ -94,12 +92,7 @@ public class CourseController {
 	 * @return One course object
 	 * Allow role for only ADMIN
 	 */
-	@GetMapping("/course/{courseId}")
-	ResponseEntity<Course> getCourseById(@PathVariable("courseId") String courseId) {
-		HttpHeaders header = new HttpHeaders();
-		header.add("desc", "get course by Id");
-		return ResponseEntity.ok().headers(header).body(courseService.getById(courseId));
-	}
+	
 	
 	
 
