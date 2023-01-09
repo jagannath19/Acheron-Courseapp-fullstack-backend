@@ -11,6 +11,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig  {
 
+	/**
+	 * @param http security
+	 * @return converted authentication
+	 * @throws Exception
+	 */
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors()
@@ -25,6 +30,10 @@ public class WebSecurityConfig  {
         .jwtAuthenticationConverter(jwtAuthenticationConverter());
         return http.build();
     }
+	
+    /**
+     * @return jwt authentication which are converted as keycloak role converter
+     */
     JwtAuthenticationConverter jwtAuthenticationConverter() {
         final JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());

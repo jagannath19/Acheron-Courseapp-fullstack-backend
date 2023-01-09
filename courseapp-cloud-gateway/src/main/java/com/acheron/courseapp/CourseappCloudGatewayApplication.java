@@ -8,6 +8,10 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * @author JagannathSutar
+ *	Cloud Gateway main class
+ */
 @SpringBootApplication
 @EnableEurekaClient
 public class CourseappCloudGatewayApplication {

@@ -6,12 +6,10 @@ package com.acheron.courseapp.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -45,7 +43,7 @@ public class CourseController {
 	/**
 	 * @param course
 	 * @return http status for addCourse controller for addCourse
-	 * Allow role for only ADMIN
+	 * Allow role for only MANAGER
 	 * 
 	 */
 	@PostMapping("/addCourse")
@@ -61,7 +59,8 @@ public class CourseController {
 	/**
 	 * @param course
 	 * @return http status for updateCourse
-	 * Use for update the course fee using course id
+	 * Use for update the course
+	 * Allowed for both MANAGER and EDITOR
 	 */
 	
 	@PutMapping("/updateCourse")
@@ -77,7 +76,9 @@ public class CourseController {
 
 	/**
 	 * @param couseId
-	 * Allow role for only ADMIN
+	 * Allow role for only MANAGER
+	 * Method use to delete a course using course Id
+	 * 
 	 */
 	@DeleteMapping("/deleteCourse/{courseId}")
 	ResponseEntity<Void> deleteCourse(@PathVariable("courseId") String couseId) {
@@ -87,11 +88,7 @@ public class CourseController {
 
 	}
 
-	/**
-	 * @param courseId
-	 * @return One course object
-	 * Allow role for only ADMIN
-	 */
+	
 	
 	
 	

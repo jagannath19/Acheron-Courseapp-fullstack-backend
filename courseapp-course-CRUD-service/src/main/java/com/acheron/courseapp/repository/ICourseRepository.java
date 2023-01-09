@@ -3,12 +3,7 @@
  */
 package com.acheron.courseapp.repository;
 
-import java.util.List;
-import java.util.Set;
-
 import com.acheron.courseapp.model.Course;
-import com.algolia.search.models.indexing.BrowseIndexResponse;
-import com.algolia.search.models.indexing.SearchResult;
 
 /**
  * @author JagannathSutar
@@ -23,9 +18,6 @@ public interface ICourseRepository {
 	
 	void deleteCourse(String courseId);
 	
-	List<Course> getAll();
-	public BrowseIndexResponse<Course> getAllWithPagination(int pages,int hitsPerPage);
-	BrowseIndexResponse<Course> getAllSorting(String attribute);
 	
 	
 	

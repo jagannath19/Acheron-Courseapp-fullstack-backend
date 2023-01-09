@@ -3,15 +3,8 @@
  */
 package com.acheron.courseapp.repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
 
 import com.acheron.courseapp.model.Course;
@@ -20,10 +13,8 @@ import com.algolia.search.SearchClient;
 import com.algolia.search.SearchIndex;
 import com.algolia.search.models.indexing.BrowseIndexQuery;
 import com.algolia.search.models.indexing.BrowseIndexResponse;
+import com.algolia.search.models.indexing.IndicesResponse;
 import com.algolia.search.models.indexing.Query;
-import com.algolia.search.models.indexing.SearchResult;
-import com.algolia.search.models.settings.IndexSettings;
-import com.algolia.search.models.settings.SetSettingsResponse;
 
 /**
  * @author JagannathSutar
@@ -36,51 +27,53 @@ public class CourseRepositoryImpl implements ICourseRepository {
 	
 	
 	
+	/**
+	 *  @param pages and hits per pages
+	 *	This method use to get courses from database according to pages and hits per pages 
+	 */
 	@Override
-	public BrowseIndexResponse<Course> getAllWithPagination(int pages,int hitsPerPage) {
-//		SetSettingsResponse pagingIndex= index.setSettings(
-//				  new IndexSettings().setHitsPerPage(10)
-//				); 
-		
-//		return index.search(
-//				  new Query("query").setPage(hitsPerPage).getAttributesToRetrieve()
-//				);
-		
-		  BrowseIndexResponse<Course> courses = index
-                .browseFrom(new BrowseIndexQuery().setPage(pages).setHitsPerPage(hitsPerPage));
-		  return courses;
+	public List<Course> getAllWithPagination(int pages,int hitsPerPage) {
+		  return index
+                .browseFrom(new BrowseIndexQuery().setPage(pages).setHitsPerPage(hitsPerPage)).getHits();
 	}
+	
+	
+	/**
+	 *	
+	 */
 	@Override
 	public BrowseIndexResponse<Course> getAllSorting(String attribute) {
-		return null;
-		
-//		return index.setSettings(
-//				  new IndexSettings().setReplicas(Collections.singleton(attribute)));
-		
-//		SetSettingsResponse replicaIndex=index.setSettings(
-//		        new IndexSettings().setReplicas(Collections.singletonList("sorting"))
-//		);
-		
-//		BrowseIndexResponse<Course> courses = index
-//                .browseFrom(new BrowseIndexQuery().setSortFacetValuesBy(attribute));
-//		
-//		return courses;
-		
-//		Index<Course> replica_index = client.initIndex("products_virtual_price_desc", Contact.class);
-//
-//		// Both
-//		replica_index.setSettings(
-//		  new IndexSettings().setCustomRankingRanking(Arrays.asList(
-//		    "desc(price)"
-//		  ))
-//		);
-		
-		
-		
+		return null;	
 	}
+	
+	
+	/**
+	 *	@param courseId
+	 *	@return course
+	 *	This method use to get a course using courseid from databse
+	 */
 	@Override
 	public Course getById(String courseId) {
 		return index.getObject(courseId);
+	}
+	
+	
+	/**
+	 *	@param search data
+	 *	@return courses
+	 *	This method use to get courses from database
+	 */
+	@Override
+	public List<Course> getBySearch(String data) {
+		// TODO Auto-generated method stub
+		return index.search(new Query(data)).getHits();
+	}
+
+
+	
+	@Override
+	public long getlength() {
+		return client.listIndices().get(0).getEntries();
 	}
 	
 

@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/jagannath19/courseapp-repo.git
+          uri: https://github.com/jagannath19/acheron-courseapp-repo.git
           
               
 eureka:

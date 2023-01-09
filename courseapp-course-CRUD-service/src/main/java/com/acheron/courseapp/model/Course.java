@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author JagannathSutar
- *
+ *	This is the model class of course
  */
 public class Course {
 	@JsonProperty("objectID")
@@ -43,6 +43,26 @@ public class Course {
 		super();
 	}
 	
+	/**
+	 * @param courseId
+	 * @param courseName
+	 * @param category
+	 * @param subcategory
+	 * @param topics
+	 * @param facultyName
+	 * @param durationInDays
+	 * @param totalHour
+	 * @param status
+	 * @param startDate
+	 * @param endDate
+	 * @param languages
+	 * @param subtitles
+	 * @param features
+	 * @param price
+	 * @param rating
+	 * @param level
+	 * @param mode
+	 */
 	public Course(String courseId, String courseName, String category, String subcategory, List<String> topics,
 			String facultyName, int durationInDays, int totalHour, String status, LocalDate startDate,
 			LocalDate endDate, List<String> languages, List<String> subtitles, List<String> features, double price,

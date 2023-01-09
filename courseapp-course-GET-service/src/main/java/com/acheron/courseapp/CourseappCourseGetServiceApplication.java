@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * @author JagannathSutar
+ * Main class of GET service
+ *
+ */
 @SpringBootApplication(exclude = ReactiveUserDetailsServiceAutoConfiguration.class)
 @EnableDiscoveryClient
 public class CourseappCourseGetServiceApplication {

@@ -5,6 +5,9 @@
   #this is a registry, It should not self register eureks to itself
   
 eureka:
+ server:
+  server:
+    enable-self-preservation: false
  instance:
    hostname: ${hostname}
  client:
